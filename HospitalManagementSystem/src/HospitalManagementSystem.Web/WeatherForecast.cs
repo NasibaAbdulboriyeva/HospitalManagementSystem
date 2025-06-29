@@ -1,4 +1,4 @@
-namespace HospitalManagementSystem
+namespace HospitalManagementSystem.Web
 {
     public class WeatherForecast
     {
