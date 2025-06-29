@@ -1,5 +1,5 @@
 
-namespace HospitalManagementSystem
+namespace HospitalManagementSystem.Web
 {
     public class Program
     {
