@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalManagementSystem.Application\HospitalManagementSystem.Application.csproj" />
+    <ProjectReference Include="..\HospitalManagementSystem.Core\HospitalManagementSystem.Core.csproj" />
+    <ProjectReference Include="..\HospitalManagementSystem.Domain\HospitalManagementSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
