@@ -18,3 +18,4 @@ public class Schedule
     }
     public long UserId { get; set; }
 }
+
