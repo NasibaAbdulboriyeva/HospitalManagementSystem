@@ -1,4 +1,5 @@
-﻿namespace HospitalManagementSystem.Domain.Entities;
+﻿using HospitalManagementSystem.Domain.Enums;
+namespace HospitalManagementSystem.Domain.Entities;
 
 public class Schedule
 {
@@ -6,15 +7,7 @@ public class Schedule
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public bool IsOnCall { get; set; }
-    public enum DayOfWeek
-    {
-        Sunday,
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday
-    }
+    public DayOfWeek DayOfWeek { get; set; }
     public long UserId { get; set; }
 }
+
