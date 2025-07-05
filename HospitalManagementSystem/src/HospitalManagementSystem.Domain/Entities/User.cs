@@ -1,5 +1,4 @@
-﻿
-namespace HospitalManagementSystem.Domain.Entities;
+﻿namespace HospitalManagementSystem.Domain.Entities;
 
 public class User
 {

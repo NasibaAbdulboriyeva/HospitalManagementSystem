@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace HospitalManagementSystem.Domain.Entities;
+﻿namespace HospitalManagementSystem.Domain.Entities;
 
 public class Department
 {
@@ -10,9 +8,8 @@ public class Department
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 
-    //Navigation properties 
     //public ICollection<Room> Rooms { get; set; }
-    public ICollection<Doctor> Doctors { get; set; } 
-    //public ICollection<Nurse> Nurses { get; set; } 
+    public ICollection<Doctor> Doctors { get; set; }
+    public ICollection<Nurse> Nurses { get; set; }
 }
 
