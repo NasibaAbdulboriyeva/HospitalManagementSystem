@@ -1,6 +1,6 @@
 ﻿namespace HospitalManagementSystem.Domain.Entities;
 
-public class User
+public class User : IAuditEntity
 {
     public long UserId { get; set; }
     public string FirstName { get; set; }
@@ -11,7 +11,7 @@ public class User
     public string PasswordHash { get; set; }
     public string Salt { get; set; }
     public DateTime CreatedAt { get; set; }
-    public DateTime LastModifiedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
 
     public ICollection<Salary> Salaries { get; set; }
 }

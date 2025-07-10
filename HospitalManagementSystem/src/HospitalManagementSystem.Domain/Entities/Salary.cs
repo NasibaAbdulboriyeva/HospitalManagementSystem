@@ -1,7 +1,7 @@
 ﻿using HospitalManagementSystem.Domain.Enums;
 
 namespace HospitalManagementSystem.Domain.Entities;
-public class Salary
+public class Salary : IAuditEntity
 {
     public long SalaryId { get; set; }
     public decimal BaseAmount { get; set; }
@@ -11,6 +11,7 @@ public class Salary
     public int Year { get; set; }
     public DateTime PaymentDate { get; set; }
     public DateTime CreatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
     public Status Status { get; set; }
     public string Notes { get; set; } 
 

@@ -1,7 +1,7 @@
 ﻿using HospitalManagementSystem.Domain.Enums;
 namespace HospitalManagementSystem.Domain.Entities;
 
-public class Doctor
+public class Doctor : IAuditEntity
 {
     public long DoctorId { get; set; }
     public DateTime DateOfBirth { get; set; }
@@ -11,7 +11,7 @@ public class Doctor
     public string Biography { get; set; }
     public bool IsActive { get; set; }
     public DateTime CreatedAt { get; set; }
-    public DateTime LastModifiedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
 
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
