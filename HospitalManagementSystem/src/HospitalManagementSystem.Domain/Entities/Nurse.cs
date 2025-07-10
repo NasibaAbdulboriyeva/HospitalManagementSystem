@@ -9,6 +9,7 @@ public class Nurse
     public DateTime DateOfBirth { get; set; }
     public int ExperienceYears { get; set; }
     public DateTime CreatedAt { get; set; }
+    public DateTime LastModifiedAt { get; set; }
 
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
