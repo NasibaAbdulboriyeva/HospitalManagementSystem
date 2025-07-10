@@ -2,7 +2,7 @@
 
 namespace HospitalManagementSystem.Domain.Entities;
 
-public class DoctorSpecialization
+public class Specialization
 {
     public long SpecializationId { get; set; }
     public string Name { get; set; } 
