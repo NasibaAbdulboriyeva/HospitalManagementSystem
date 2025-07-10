@@ -12,4 +12,5 @@ public class User
     public string Salt { get; set; }
     public DateTime CreatedAt { get; set; }
 
+    public ICollection<Salary> Salaries { get; set; }
 }
