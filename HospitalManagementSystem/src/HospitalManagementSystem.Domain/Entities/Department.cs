@@ -1,12 +1,12 @@
 ﻿namespace HospitalManagementSystem.Domain.Entities;
 
-public class Department
+public class Department : IAuditEntity
 {
     public long DepartmentId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
 
     //public ICollection<Room> Rooms { get; set; }
     public ICollection<Doctor> Doctors { get; set; }
