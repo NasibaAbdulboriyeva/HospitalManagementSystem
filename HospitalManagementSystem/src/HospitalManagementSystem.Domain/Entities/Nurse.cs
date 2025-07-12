@@ -10,12 +10,15 @@ public class Nurse : IAuditEntity
     public int ExperienceYears { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
-
-    public long DepartmentId { get; set; }
-    public Department Department { get; set; }
-
     public long UserId { get; set; }
     public User User { get; set; }
+    public long StaffId { get; set; }
+    public Staff Staff { get; set; }
+   
+    public long DepartmentId { get; set; }
+    public Department Department { get; set; }
+    
+   
 }
 
 

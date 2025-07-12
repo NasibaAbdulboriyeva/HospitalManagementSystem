@@ -10,15 +10,19 @@ public class Doctor : IAuditEntity
     public Gender Gender { get; set; }
     public string Biography { get; set; }
     public bool IsActive { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime? LastModifiedAt { get; set; }
-
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
-
     public long UserId { get; set; }
     public User User { get; set; }
-
-    public long SpecializationId { get; set; }
-    public Specialization Specialization { get; set; }
+    public long StaffId { get; set; }
+    public Staff Staff { get; set; }
+    public ICollection<DoctorSpecialization> DoctorSpecializations { get; set; }
+    public ICollection<MedicalRecord> MedicalRecords { get; set; }
+    public ICollection<LabTest> LabTests { get; set; }
+    public ICollection<Surgery> Surgeries { get; set; }
+    public ICollection<TreatmentPlan> TreatmentPlans { get; set; }
+    public ICollection<Prescription> Prescriptions { get; set; }
+    public ICollection<Appointment> Appointments { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
 }

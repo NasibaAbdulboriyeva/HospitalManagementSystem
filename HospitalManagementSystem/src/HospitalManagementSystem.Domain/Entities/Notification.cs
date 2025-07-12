@@ -13,9 +13,11 @@ namespace HospitalManagementSystem.Domain.Entities
 
         public bool IsRead { get; set; }
 
-        public DateTime SentDate { get; set; } 
+        public DateTime SentDate { get; set; }
 
         public NotificationType Type { get; set; }
+        public long UserId { get; set; }
+        public User User { get; set; }
         public DateTime CreatedAt { get ; set; }
         public DateTime? LastModifiedAt { get; set ; }
     }

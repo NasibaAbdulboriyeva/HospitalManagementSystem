@@ -20,7 +20,8 @@ public class LabTest : IAuditEntity
 
     public long PatientId { get; set; }
     public Patient Patient { get; set; }
-
+    public long? TreatmentPlanId { get; set; }
+    public TreatmentPlan TreatmentPlan { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 }

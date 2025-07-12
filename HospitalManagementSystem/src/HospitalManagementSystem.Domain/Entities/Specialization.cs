@@ -9,5 +9,5 @@ public class Specialization : IAuditEntity
     public string Description { get; set; }
     public DateTime CreatedAt { get; set; } 
     public DateTime? LastModifiedAt { get; set; }
-    public List<Doctor> Doctors { get; set; }
+    public ICollection<DoctorSpecialization> DoctorSpecializations { get; set; }
 }

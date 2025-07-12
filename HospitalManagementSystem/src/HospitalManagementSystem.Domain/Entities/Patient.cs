@@ -9,14 +9,18 @@ public class Patient : IAuditEntity
     public Gender Gender { get; set; }
     public string Address { get; set; } 
     public string EmergencyContact { get; set; } 
-    public string BloodGroup { get; set; } 
+    public BloodGroup BloodGroup { get; set; } 
     public int HeightCm { get; set; }
     public int WeightKg { get; set; }
     public bool IsAdmitted { get; set; }
-
-    public DateTime CreatedAt { get; set; } 
-    public DateTime? LastModifiedAt { get; set; }
-
     public long UserId { get; set; }
     public User User { get; set; }
+    public MedicalRecord MedicalRecord { get; set; }
+    public ICollection<Appointment> Appointments { get; set; }
+    public ICollection<Admission> Admissions { get; set; }
+    public ICollection<Payment> Payments { get; set; }
+    public ICollection<Feedback> Feedbacks { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
+  
 }
