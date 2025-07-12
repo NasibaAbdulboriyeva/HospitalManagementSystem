@@ -14,4 +14,8 @@ public class User : IAuditEntity
     public DateTime? LastModifiedAt { get; set; }
 
     public ICollection<Salary> Salaries { get; set; }
+    public ICollection<UserRole> UserRoles { get; set; }
+    public ICollection<Notification> Notifications { get; set; }
+   
+
 }

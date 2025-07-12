@@ -10,11 +10,12 @@ public class Salary : IAuditEntity
     public Month Month { get; set; }
     public int Year { get; set; }
     public DateTime PaymentDate { get; set; }
+    public Status Status { get; set; }
+    public string Notes { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
-    public Status Status { get; set; }
-    public string Notes { get; set; } 
+   
+    public long StaffId { get; set; }
+    public Staff Staff { get; set; }
 
-    public long UserId { get; set; }
-    public User User { get; set; }
 }

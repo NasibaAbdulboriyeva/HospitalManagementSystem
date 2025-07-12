@@ -7,8 +7,11 @@ public class Schedule : IAuditEntity
     public DateTime EndTime { get; set; }
     public bool IsOnCall { get; set; }
     public DayOfWeek DayOfWeek { get; set; }
-    public long UserId { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
+    public long StaffId { get; set; }
+    public Staff Staff { get; set; }
+   
+
 }
 

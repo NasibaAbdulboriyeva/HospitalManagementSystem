@@ -8,10 +8,9 @@ public class MedicalRecord : IAuditEntity
     public string Notes { get; set; }
 
     public long PatientId { get; set; }
-    public Patient Patient { get; set; } 
-
-    public long DoctorId { get; set; }
-    public Doctor Doctor { get; set; }
+    public Patient Patient { get; set; }
+    public ICollection<Doctor> Doctors { get; set; }
+    public ICollection<TreatmentPlan> TreatmentPlans { get; set; }
 
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
