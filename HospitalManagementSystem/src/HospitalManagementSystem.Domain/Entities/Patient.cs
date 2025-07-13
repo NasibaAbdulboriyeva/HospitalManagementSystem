@@ -14,7 +14,6 @@ public class Patient : IAuditEntity
     public int WeightKg { get; set; }
     public bool IsAdmitted { get; set; }
     public string? ProfileImageUrl { get; set; }
-
     public long UserId { get; set; }
     public User User { get; set; }
     public ICollection<Appointment> Appointments { get; set; }
@@ -24,5 +23,4 @@ public class Patient : IAuditEntity
     public ICollection<Feedback> Feedbacks { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
-  
 }

@@ -16,7 +16,4 @@ public class User : IAuditEntity
     public ICollection<UserRole> UserRoles { get; set; }
     public ICollection<Notification> Notifications { get; set; }
     public ICollection<Payment> Payments { get; set; }
-
-
-
 }

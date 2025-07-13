@@ -14,16 +14,8 @@ public class Nurse : IAuditEntity
     public User User { get; set; }
     public long OperationScheduleId { get; set; }
     public OperationSchedule OperationSchedule { get; set; }
-    public long StaffId { get; set; } // 👈 FK to Staff
+    public long StaffId { get; set; } 
     public Staff Staff { get; set; }
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
-
-
-
-
-
 }
-
-
-
