@@ -9,4 +9,3 @@ public class UserRole : IAuditEntity
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 }
-

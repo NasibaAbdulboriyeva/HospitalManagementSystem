@@ -6,7 +6,6 @@ public class Role : IAuditEntity
     public string Name { get; set; }
     public string Description { get; set; }
     public ICollection<UserRole> UserRoles { get; set; }
-
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 }

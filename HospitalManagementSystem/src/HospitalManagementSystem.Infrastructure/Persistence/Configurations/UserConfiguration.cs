@@ -44,7 +44,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
             builder.Property(u => u.LastModifiedAt)
                    .IsRequired(false);
 
-            
+
             builder.HasMany(u => u.UserRoles)
                    .WithOne(ur => ur.User)
                    .HasForeignKey(ur => ur.UserId)
@@ -61,8 +61,8 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
                    .OnDelete(DeleteBehavior.Restrict);
         }
 
-       
+
     }
-    
-    }
+
+}
 

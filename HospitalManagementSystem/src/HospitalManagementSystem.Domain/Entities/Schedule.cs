@@ -11,7 +11,5 @@ public class Schedule : IAuditEntity
     public DateTime? LastModifiedAt { get; set; }
     public long StaffId { get; set; }
     public Staff Staff { get; set; }
-   
-
 }
 
