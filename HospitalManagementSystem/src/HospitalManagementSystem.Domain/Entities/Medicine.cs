@@ -18,8 +18,7 @@ namespace HospitalManagementSystem.Domain.Entities
         public DateTime? ExpiryDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? LastModifiedAt { get; set; }
-        public long PrescriptionId { get; set; }
-        public Prescription Prescription { get; set; }
+        public ICollection<PrescriptionMedicine> PrescriptionMedicines { get; set; }
         public string? Notes { get; set; }
     }
 

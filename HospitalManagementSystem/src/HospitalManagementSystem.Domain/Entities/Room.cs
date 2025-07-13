@@ -11,8 +11,6 @@ public class Room : IAuditEntity
     public int Capacity { get; set; }
 
     public bool IsAvailable { get; set; }
-    public long AdmissionId { get; set; }
-    public Admission Admission { get; set; }
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
     public ICollection<Bed> Beds { get; set; }
