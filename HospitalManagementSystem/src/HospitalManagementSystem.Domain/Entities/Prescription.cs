@@ -21,7 +21,7 @@ public class Prescription : IAuditEntity
 
     public long DoctorId { get; set; }
     public Doctor Doctor { get; set; }
-    public ICollection<Medicine> Medicines { get; set; }
+    public ICollection<PrescriptionMedicine> PrescriptionMedicines { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 }

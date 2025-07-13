@@ -9,11 +9,8 @@ namespace HospitalManagementSystem.Domain.Entities
     public class Bed : IAuditEntity
     {
         public long BedId { get; set; } 
-
         public string BedNumber { get; set; }
-
         public bool IsOccupied { get; set; }
-
         public long RoomId { get; set; }
         public Room Room { get; set; }
         public ICollection<Admission> Admissions { get; set; }

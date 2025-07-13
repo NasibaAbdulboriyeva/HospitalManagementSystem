@@ -17,5 +17,5 @@ public class Salary : IAuditEntity
    
     public long StaffId { get; set; }
     public Staff Staff { get; set; }
-
+    
 }

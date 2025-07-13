@@ -11,13 +11,10 @@ public class Staff : IAuditEntity
 
     public long DepartmentId { get; set; }
     public Department Department { get; set; }
-    public long DoctorId { get; set; }
     public Doctor Doctor { get; set; }
-    public long NurseId { get; set; }
     public Nurse Nurse{ get; set; }
     public ICollection<Schedule> Schedules { get; set; }
     public ICollection<Salary> Salaries { get; set; }
-    public ICollection<OperationTheatreStaff> OperationTheatreStaffs { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 

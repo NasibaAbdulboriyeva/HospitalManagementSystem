@@ -13,9 +13,6 @@ public class Admission : IAuditEntity
 
     public long PatientId { get; set; }
     public Patient Patient { get; set; }
-
-    public long? RoomId { get; set; }
-    public Room Room { get; set; }
     public long? BedId { get; set; }
     public Bed Bed { get; set; }
 

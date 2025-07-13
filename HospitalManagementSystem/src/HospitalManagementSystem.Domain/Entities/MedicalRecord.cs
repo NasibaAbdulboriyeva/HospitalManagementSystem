@@ -9,7 +9,7 @@ public class MedicalRecord : IAuditEntity
 
     public long PatientId { get; set; }
     public Patient Patient { get; set; }
-    public ICollection<Doctor> Doctors { get; set; }
+    
     public ICollection<TreatmentPlan> TreatmentPlans { get; set; }
 
     public DateTime CreatedAt { get; set; }

@@ -21,6 +21,8 @@ namespace HospitalManagementSystem.Domain.Entities
 
         public long PatientId { get; set; }
         public Patient Patient { get; set; }
+        public long UserId { get; set; } 
+        public User User { get; set; }
         public long CardId { get; set; }
         public Card Card { get; set; }
 

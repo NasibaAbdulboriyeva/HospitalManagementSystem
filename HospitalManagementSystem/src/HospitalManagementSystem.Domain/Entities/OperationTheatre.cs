@@ -21,7 +21,8 @@ namespace HospitalManagementSystem.Domain.Entities
         public string? Notes { get; set; }
         public long? DepartmentId { get; set; }
         public Department Department { get; set; }
-        public ICollection<OperationTheatreStaff> OperationTheatreStaffs { get; set; }
+        public ICollection<OperationSchedule> OperationSchedules { get; set; }
+
         public ICollection<Surgery> Surgeries { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? LastModifiedAt { get; set; }

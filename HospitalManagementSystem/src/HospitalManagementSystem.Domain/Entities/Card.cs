@@ -19,6 +19,8 @@ namespace HospitalManagementSystem.Domain.Entities
         public int? CVV { get; set; }
         public long PaymentId { get; set; }
         public Payment Payment { get; set; }
+        public long UserId { get; set; }
+        public User User { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? LastModifiedAt { get; set; }
     }
