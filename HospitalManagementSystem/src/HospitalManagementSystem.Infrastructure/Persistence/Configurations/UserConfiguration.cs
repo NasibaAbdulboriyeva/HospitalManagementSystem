@@ -60,9 +60,6 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
                    .HasForeignKey(p => p.UserId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
-
-
     }
-
 }
 
