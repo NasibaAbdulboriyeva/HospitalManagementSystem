@@ -24,4 +24,5 @@ public class Hospital : IAuditEntity
     public ICollection<Ambulance> Ambulances { get; set; }
     public ICollection<Staff> StaffMembers { get; set; }
     public ICollection<Patient> Patients { get; set; }
+    public ICollection<Role> Roles { get; set; }
 }
