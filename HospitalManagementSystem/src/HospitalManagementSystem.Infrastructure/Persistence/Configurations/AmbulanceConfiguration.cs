@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
+using HospitalManagementSystem.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -26,7 +27,7 @@ public class AmbulanceConfiguration : IEntityTypeConfiguration<Ambulance>
 
         builder.Property(a => a.Status)
             .IsRequired()
-            .HasConversion<string>();
+            .HasConversion<Status>();
 
         builder.Property(a => a.Location)
             .HasMaxLength(200);
@@ -35,7 +36,8 @@ public class AmbulanceConfiguration : IEntityTypeConfiguration<Ambulance>
             .IsRequired();
 
         builder.Property(a => a.CreatedAt)
-            .IsRequired();
+            .IsRequired()
+            .HasDefaultValueSql("GETUTCDATE()");
 
         builder.Property(a => a.LastModifiedAt)
             .IsRequired(false);

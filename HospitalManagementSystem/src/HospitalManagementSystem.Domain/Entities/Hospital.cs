@@ -2,7 +2,7 @@
 
 public class Hospital : IAuditEntity
 {
-    public long Id { get; set; }
+    public long HospitalId { get; set; }
     public string Name { get; set; }
     public string Code { get; set; } 
     public string Type { get; set; } 

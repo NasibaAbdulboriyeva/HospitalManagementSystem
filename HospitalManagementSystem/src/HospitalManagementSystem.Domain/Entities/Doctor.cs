@@ -10,6 +10,8 @@ public class Doctor : IAuditEntity
     public Gender Gender { get; set; }
     public string Biography { get; set; }
     public bool IsActive { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
     public long UserId { get; set; }
     public User User { get; set; }
     public long DepartmentId { get; set; }
@@ -24,6 +26,6 @@ public class Doctor : IAuditEntity
     public ICollection<TreatmentPlan> TreatmentPlans { get; set; }
     public ICollection<Prescription> Prescriptions { get; set; }
     public ICollection<Appointment> Appointments { get; set; }
-    public DateTime CreatedAt { get; set; }
-    public DateTime? LastModifiedAt { get; set; }
+    public ICollection<Feedback> Feedbacks { get; set; }
 }
+
