@@ -1,24 +1,25 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
 
-public class RoleConfiguration : IEntityTypeConfiguration<Role>
-{
-    public void Configure(EntityTypeBuilder<Role> builder)
+    public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
-        builder.ToTable("Roles");
+        public void Configure(EntityTypeBuilder<Role> builder)
+        {
+            builder.ToTable("Roles");
 
-        builder.HasKey(r => r.RoleId);
+            builder.HasKey(r => r.RoleId);
 
         builder.Property(r => r.Name)
-            .IsRequired()
-            .HasMaxLength(100);
+                .IsRequired()
+                .HasMaxLength(100);
 
-        builder.Property(r => r.Description)
+            builder.Property(r => r.Description)
             .IsRequired()
-            .HasMaxLength(500);
+                .HasMaxLength(500);
 
         builder.Property(r => r.CreatedAt)
             .IsRequired()

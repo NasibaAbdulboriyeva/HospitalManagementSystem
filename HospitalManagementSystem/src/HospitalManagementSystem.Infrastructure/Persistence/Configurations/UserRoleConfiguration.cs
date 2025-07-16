@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -6,6 +7,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
 
 public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {
+
     public void Configure(EntityTypeBuilder<UserRole> builder)
     {
         builder.ToTable("UserRoles");
@@ -28,5 +30,6 @@ public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
             .WithMany(r => r.UserRoles)
             .HasForeignKey(ur => ur.RoleId)
             .OnDelete(DeleteBehavior.Cascade);
+
     }
 }
