@@ -1,14 +1,10 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
-{
+namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
+
     public class AdmissionConfiguration : IEntityTypeConfiguration<Admission>
     {
         public void Configure(EntityTypeBuilder<Admission> builder)
@@ -28,10 +24,12 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
                 .HasMaxLength(500);
 
             builder.Property(a => a.IsDischarged)
-                .IsRequired();
+            .IsRequired()
+            .HasDefaultValue(false);
 
             builder.Property(a => a.CreatedAt)
-                .IsRequired();
+            .IsRequired()
+            .HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(a => a.LastModifiedAt)
                 .IsRequired(false);
@@ -39,11 +37,11 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
             builder.HasOne(a => a.Patient)
                 .WithMany(p => p.Admissions) 
                 .HasForeignKey(a => a.PatientId)
-                .OnDelete(DeleteBehavior.Restrict); 
+               .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(a => a.Bed)
-                .WithMany(b => b.Admissions) 
-                .HasForeignKey(a => a.BedId)
+               .WithOne(b => b.Admissions)
+               .HasForeignKey<Admission>(a => a.BedId)
                 .OnDelete(DeleteBehavior.SetNull); 
         }
     }

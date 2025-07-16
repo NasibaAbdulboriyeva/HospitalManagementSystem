@@ -1,8 +1,10 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
+
 public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 {
 
@@ -11,6 +13,13 @@ public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
         builder.ToTable("UserRoles");
 
         builder.HasKey(ur => new { ur.UserId, ur.RoleId });
+
+        builder.Property(ur => ur.CreatedAt)
+            .IsRequired()
+            .HasDefaultValueSql("GETUTCDATE()");
+
+        builder.Property(ur => ur.LastModifiedAt)
+            .IsRequired(false);
 
         builder.HasOne(ur => ur.User)
             .WithMany(u => u.UserRoles)

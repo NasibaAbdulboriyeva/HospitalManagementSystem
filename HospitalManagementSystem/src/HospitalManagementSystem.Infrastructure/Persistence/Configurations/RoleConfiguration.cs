@@ -1,14 +1,10 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
-{
+namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
+
     public class RoleConfiguration : IEntityTypeConfiguration<Role>
     {
         public void Configure(EntityTypeBuilder<Role> builder)
@@ -17,23 +13,24 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
 
             builder.HasKey(r => r.RoleId);
 
-            builder.Property(r => r.RoleName)
+        builder.Property(r => r.Name)
                 .IsRequired()
                 .HasMaxLength(100);
 
             builder.Property(r => r.Description)
+            .IsRequired()
                 .HasMaxLength(500);
 
-            builder.Property(r => r.IsActive)
-                .IsRequired();
+        builder.Property(r => r.CreatedAt)
+            .IsRequired()
+            .HasDefaultValueSql("GETUTCDATE()");
 
-            builder.Property(r => r.HospitalId)
-                .IsRequired();
+        builder.Property(r => r.LastModifiedAt)
+            .IsRequired(false);
 
-            builder.HasOne(r => r.Hospital)
-                .WithMany(h => h.Roles)
-                .HasForeignKey(r => r.HospitalId);
-
-        }
+        builder.HasMany(r => r.UserRoles)
+            .WithOne(ur => ur.Role)
+            .HasForeignKey(ur => ur.RoleId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

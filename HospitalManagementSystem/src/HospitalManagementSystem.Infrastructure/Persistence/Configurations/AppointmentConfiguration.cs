@@ -1,9 +1,10 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
+using HospitalManagementSystem.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
-{
+namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
+
     public class AppointmentConfiguration : IEntityTypeConfiguration<Appointment>
     {
         public void Configure(EntityTypeBuilder<Appointment> builder)
@@ -21,10 +22,11 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
 
             builder.Property(a => a.AppointmentStatus)
                 .IsRequired()
-                .HasConversion<string>();
+            .HasConversion<AppointmentStatus>();
 
             builder.Property(a => a.CreatedAt)
-                .IsRequired();
+            .IsRequired()
+            .HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(a => a.LastModifiedAt)
                 .IsRequired(false);
@@ -32,7 +34,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations
             builder.HasOne(a => a.Patient)
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.PatientId)
-                .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments)
