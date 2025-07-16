@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace HospitalManagementSystem.Domain.Entities;
 
-public class PrescriptionMedicine
+public class PrescriptionMedicine : IAuditEntity
 {
     public long PrescriptionId { get; set; }
     public Prescription Prescription { get; set; }
     public long MedicineId { get; set; }
     public Medicine Medicine { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? LastModifiedAt { get; set; }
 }

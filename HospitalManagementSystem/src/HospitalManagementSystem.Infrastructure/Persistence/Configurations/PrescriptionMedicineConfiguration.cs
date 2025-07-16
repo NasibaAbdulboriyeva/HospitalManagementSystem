@@ -21,5 +21,12 @@ public class PrescriptionMedicineConfiguration : IEntityTypeConfiguration<Prescr
             .WithMany(m => m.PrescriptionMedicines)
             .HasForeignKey(pm => pm.MedicineId)
             .OnDelete(DeleteBehavior.Cascade);
+
+           builder.Property(pm => pm.CreatedAt)
+           .IsRequired()
+           .HasDefaultValueSql("GETUTCDATE()");
+
+         builder.Property(pm => pm.LastModifiedAt)
+            .IsRequired(false);
     }
 }

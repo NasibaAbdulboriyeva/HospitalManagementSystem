@@ -20,7 +20,7 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
 
         builder.Property(d => d.CreatedAt)
             .IsRequired()
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValueSql("GETUTCDATE()");
 
         builder.Property(d => d.LastModifiedAt)
             .IsRequired(false);

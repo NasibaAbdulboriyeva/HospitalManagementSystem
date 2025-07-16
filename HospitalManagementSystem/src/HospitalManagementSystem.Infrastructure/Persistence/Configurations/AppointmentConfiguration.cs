@@ -42,4 +42,3 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
-}
