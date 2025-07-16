@@ -1,7 +1,6 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
 
@@ -13,7 +12,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
 
             builder.HasKey(r => r.RoleId);
 
-        builder.Property(r => r.Name)
+        builder.Property(r => r.RoleName)
                 .IsRequired()
                 .HasMaxLength(100);
 

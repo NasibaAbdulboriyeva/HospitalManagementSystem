@@ -10,7 +10,7 @@ public class DoctorSpecializationConfiguration : IEntityTypeConfiguration<Doctor
     {
         builder.ToTable("DoctorSpecializations");
 
-        builder.HasKey(ds => ds.SpecializationId);
+        builder.HasKey(ds => new { ds.DoctorId, ds.SpecializationId });
 
         builder.Property(ds => ds.CreatedAt)
             .IsRequired()
@@ -22,6 +22,11 @@ public class DoctorSpecializationConfiguration : IEntityTypeConfiguration<Doctor
         builder.HasOne(ds => ds.Doctor)
             .WithMany(d => d.DoctorSpecializations)
             .HasForeignKey(ds => ds.DoctorId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(ds => ds.Specialization)
+            .WithMany(s => s.DoctorSpecializations)
+            .HasForeignKey(ds => ds.SpecializationId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

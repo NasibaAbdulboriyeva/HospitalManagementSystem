@@ -1,7 +1,6 @@
 ﻿using HospitalManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
 
@@ -40,9 +39,9 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(a => a.Bed)
-               .WithOne(b => b.Admissions)
+               .WithOne(b => b.Admission)
                .HasForeignKey<Admission>(a => a.BedId)
                 .OnDelete(DeleteBehavior.SetNull); 
         }
     }
-}
+

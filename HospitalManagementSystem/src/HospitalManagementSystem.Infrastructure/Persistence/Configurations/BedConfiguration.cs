@@ -35,7 +35,7 @@ public class BedConfiguration : IEntityTypeConfiguration<Bed>
             .IsUnique()
             .HasDatabaseName("IX_Beds_BedNumber");
 
-        builder.HasOne(b => b.Admissions)
+        builder.HasOne(b => b.Admission)
              .WithOne(a => a.Bed)
              .HasForeignKey<Admission>(a => a.BedId)
              .OnDelete(DeleteBehavior.SetNull);
