@@ -17,8 +17,7 @@ public class PatientConfiguration : IEntityTypeConfiguration<Patient>
             .IsRequired();
 
         builder.Property(p => p.Gender)
-            .IsRequired()
-            .HasConversion<Gender>();
+            .IsRequired();
 
         builder.Property(p => p.Address)
             .IsRequired()
@@ -29,8 +28,7 @@ public class PatientConfiguration : IEntityTypeConfiguration<Patient>
             .HasMaxLength(20);
 
         builder.Property(p => p.BloodGroup)
-            .IsRequired()
-            .HasConversion<BloodGroup>();
+            .IsRequired();
 
         builder.Property(p => p.HeightCm)
             .IsRequired();
@@ -53,34 +51,69 @@ public class PatientConfiguration : IEntityTypeConfiguration<Patient>
         builder.Property(p => p.LastModifiedAt)
             .IsRequired(false);
 
+        builder.HasOne(p => p.Hospital)
+           .WithMany(h => h.Patients)
+           .HasForeignKey(p => p.HospitalId)
+           .OnDelete(DeleteBehavior.SetNull); // Hospital o‘chsa Patient HospitalId NULL bo‘ladi
+
+        // Patient → User (One-to-One)
         builder.HasOne(p => p.User)
-            .WithMany(u => u.Patients)
-            .HasForeignKey(p => p.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .WithOne(u => u.Patient)
+            .HasForeignKey<Patient>(p => p.UserId)
+            .OnDelete(DeleteBehavior.Cascade); // User o‘chsa Patient ham o‘chadi
 
-        builder.HasMany(p => p.Admissions)
-            .WithOne(a => a.Patient)
-            .HasForeignKey(a => a.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
-
+        // Patient → Appointments (One-to-Many)
         builder.HasMany(p => p.Appointments)
             .WithOne(a => a.Patient)
             .HasForeignKey(a => a.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict); // Appointments bo‘lsa Patient o‘chmaydi
 
+        // Patient → MedicalRecords (One-to-Many)
         builder.HasMany(p => p.MedicalRecords)
-            .WithOne(m => m.Patient)
-            .HasForeignKey(m => m.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithOne(mr => mr.Patient)
+            .HasForeignKey(mr => mr.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
 
+        // Patient → Admissions (One-to-Many)
+        builder.HasMany(p => p.Admissions)
+            .WithOne(a => a.Patient)
+            .HasForeignKey(a => a.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Patient → Payments (One-to-Many)
         builder.HasMany(p => p.Payments)
-            .WithOne(pmt => pmt.Patient)
-            .HasForeignKey(pmt => pmt.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithOne(pay => pay.Patient)
+            .HasForeignKey(pay => pay.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
 
+        // Patient → Feedbacks (One-to-Many)
         builder.HasMany(p => p.Feedbacks)
-            .WithOne(f => f.Patient)
-            .HasForeignKey(f => f.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithOne(fb => fb.Patient)
+            .HasForeignKey(fb => fb.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Patient → LabTests (One-to-Many)
+        builder.HasMany(p => p.LabTests)
+            .WithOne(lt => lt.Patient)
+            .HasForeignKey(lt => lt.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Patient → Prescriptions (One-to-Many)
+        builder.HasMany(p => p.Prescriptions)
+            .WithOne(pr => pr.Patient)
+            .HasForeignKey(pr => pr.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Patient → Surgeries (One-to-Many)
+        builder.HasMany(p => p.Surgeries)
+            .WithOne(s => s.Patient)
+            .HasForeignKey(s => s.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Patient → TreatmentPlans (One-to-Many)
+        builder.HasMany(p => p.TreatmentPlans)
+            .WithOne(tp => tp.Patient)
+            .HasForeignKey(tp => tp.PatientId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

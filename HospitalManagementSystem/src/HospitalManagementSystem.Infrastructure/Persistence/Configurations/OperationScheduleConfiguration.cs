@@ -20,8 +20,7 @@ public class OperationScheduleConfiguration : IEntityTypeConfiguration<Operation
             .IsRequired();
 
         builder.Property(os => os.Status)
-            .IsRequired()
-            .HasConversion<Status>();
+            .IsRequired();
 
         builder.Property(os => os.CreatedAt)
             .IsRequired()

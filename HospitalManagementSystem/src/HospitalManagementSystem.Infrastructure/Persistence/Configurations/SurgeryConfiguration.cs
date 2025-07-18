@@ -28,8 +28,7 @@ public class SurgeryConfiguration : IEntityTypeConfiguration<Surgery>
             .IsRequired();
 
         builder.Property(s => s.Status)
-            .IsRequired()
-            .HasConversion<Status>();
+            .IsRequired();
 
         builder.Property(s => s.CreatedAt)
             .IsRequired()

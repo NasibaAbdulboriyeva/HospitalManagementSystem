@@ -29,7 +29,7 @@ public class BedConfiguration : IEntityTypeConfiguration<Bed>
         builder.HasOne(b => b.Room)
             .WithMany(r => r.Beds)
             .HasForeignKey(b => b.RoomId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasIndex(b => b.BedNumber)
             .IsUnique()

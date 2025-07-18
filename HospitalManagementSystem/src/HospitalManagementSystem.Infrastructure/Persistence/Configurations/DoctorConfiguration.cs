@@ -24,8 +24,7 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .IsRequired();
 
         builder.Property(d => d.Gender)
-            .IsRequired()
-            .HasConversion<Gender>();
+            .IsRequired();
 
         builder.Property(d => d.Biography)
             .IsRequired()
@@ -43,8 +42,8 @@ public class DoctorConfiguration : IEntityTypeConfiguration<Doctor>
             .IsRequired(false);
 
         builder.HasOne(d => d.User)
-            .WithMany(u => u.Doctors)
-            .HasForeignKey(d => d.UserId)
+            .WithOne(u => u.Doctor)
+            .HasForeignKey<User>(d => d.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(d => d.Department)

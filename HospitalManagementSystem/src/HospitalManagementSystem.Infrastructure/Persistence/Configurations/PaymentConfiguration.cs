@@ -18,12 +18,10 @@ public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
             .HasColumnType("decimal(18,2)");
 
         builder.Property(p => p.PaymentStatus)
-            .IsRequired()
-            .HasConversion<PaymentStatus>();
+            .IsRequired();
 
         builder.Property(p => p.Method)
-            .IsRequired()
-            .HasConversion<PaymentMethod>();
+            .IsRequired();
 
         builder.Property(p => p.PaidAt)
             .IsRequired();
@@ -38,7 +36,7 @@ public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
         builder.HasOne(p => p.Patient)
             .WithMany(pa => pa.Payments)
             .HasForeignKey(p => p.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(p => p.User)
             .WithMany(u => u.Payments)

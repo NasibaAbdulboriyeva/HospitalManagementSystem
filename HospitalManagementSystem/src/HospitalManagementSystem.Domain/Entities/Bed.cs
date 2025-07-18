@@ -5,7 +5,7 @@ public class Bed : IAuditEntity
     public long BedId { get; set; }
     public string BedNumber { get; set; }
     public bool IsOccupied { get; set; }
-    public long RoomId { get; set; }
+    public long? RoomId { get; set; }
     public Room Room { get; set; }
     public Admission Admission { get; set; }
     public DateTime CreatedAt { get; set; }

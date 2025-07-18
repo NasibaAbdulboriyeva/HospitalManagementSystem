@@ -45,7 +45,7 @@ public class PrescriptionConfiguration : IEntityTypeConfiguration<Prescription>
         builder.HasOne(p => p.Patient)
             .WithMany(pa => pa.Prescriptions)
             .HasForeignKey(p => p.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(p => p.Doctor)
             .WithMany(d => d.Prescriptions)

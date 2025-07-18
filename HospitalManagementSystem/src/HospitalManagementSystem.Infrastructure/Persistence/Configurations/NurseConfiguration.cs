@@ -18,8 +18,7 @@ public class NurseConfiguration : IEntityTypeConfiguration<Nurse>
             .HasMaxLength(1000);
 
         builder.Property(n => n.Gender)
-            .IsRequired()
-            .HasConversion<Gender>();
+            .IsRequired();
 
         builder.Property(n => n.DateOfBirth)
             .IsRequired();
@@ -35,9 +34,9 @@ public class NurseConfiguration : IEntityTypeConfiguration<Nurse>
             .IsRequired(false);
 
         builder.HasOne(n => n.User)
-            .WithMany(u => u.Nurses)
-            .HasForeignKey(n => n.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .WithOne(u => u.Nurse)
+            .HasForeignKey<User>(n => n.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(n => n.Staff)
             .WithMany(s => s.Nurses)

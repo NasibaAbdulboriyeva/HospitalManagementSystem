@@ -14,7 +14,7 @@ public class Card : IAuditEntity
     public DateTime CreatedAt { get; set; }
     public DateTime? LastModifiedAt { get; set; }
 
-    public long UserId { get; set; }
+    public long? UserId { get; set; }
     public User User { get; set; }
 
     public ICollection<Payment> Payments { get; set; }

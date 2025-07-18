@@ -10,7 +10,7 @@ public class Prescription : IAuditEntity
     public string Instructions { get; set; }
     public long? TreatmentPlanId { get; set; }
     public TreatmentPlan TreatmentPlan { get; set; }
-    public long PatientId { get; set; }
+    public long? PatientId { get; set; }
     public Patient Patient { get; set; }
     public long DoctorId { get; set; }
     public Doctor Doctor { get; set; }

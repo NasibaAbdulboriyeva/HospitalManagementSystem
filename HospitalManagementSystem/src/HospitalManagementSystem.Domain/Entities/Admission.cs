@@ -7,7 +7,7 @@ public class Admission : IAuditEntity
     public DateTime? DischargeDate { get; set; }
     public string Diagnosis { get; set; }
     public bool IsDischarged { get; set; }
-    public long PatientId { get; set; }
+    public long? PatientId { get; set; }
     public Patient Patient { get; set; }
     public long? BedId { get; set; }
     public Bed Bed { get; set; }

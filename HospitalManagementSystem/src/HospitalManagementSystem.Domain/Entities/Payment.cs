@@ -14,7 +14,7 @@ public class Payment : IAuditEntity
     public PaymentStatus PaymentStatus { get; set; } 
     public PaymentMethod Method { get; set; }
     public DateTime PaidAt { get; set; }
-    public long PatientId { get; set; }
+    public long? PatientId { get; set; }
     public Patient Patient { get; set; }
     public long UserId { get; set; } 
     public User User { get; set; }

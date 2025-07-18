@@ -26,8 +26,7 @@ public class SalaryConfiguration : IEntityTypeConfiguration<Salary>
             .HasColumnType("decimal(18,2)");
 
         builder.Property(s => s.Month)
-            .IsRequired()
-            .HasConversion<Month>();
+            .IsRequired();
 
         builder.Property(s => s.Year)
             .IsRequired();
@@ -36,8 +35,7 @@ public class SalaryConfiguration : IEntityTypeConfiguration<Salary>
             .IsRequired();
 
         builder.Property(s => s.Status)
-            .IsRequired()
-            .HasConversion<Status>();
+            .IsRequired();
 
         builder.Property(s => s.Notes)
             .IsRequired(false)
@@ -53,6 +51,6 @@ public class SalaryConfiguration : IEntityTypeConfiguration<Salary>
         builder.HasOne(s => s.Staff)
             .WithMany(st => st.Salaries)
             .HasForeignKey(s => s.StaffId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

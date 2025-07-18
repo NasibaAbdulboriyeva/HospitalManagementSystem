@@ -21,8 +21,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
                 .HasMaxLength(500);
 
             builder.Property(a => a.AppointmentStatus)
-                .IsRequired()
-            .HasConversion<AppointmentStatus>();
+                .IsRequired();
 
             builder.Property(a => a.CreatedAt)
             .IsRequired()
@@ -34,7 +33,7 @@ namespace HospitalManagementSystem.Infrastructure.Persistence.Configurations;
             builder.HasOne(a => a.Patient)
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(a => a.Doctor)
                 .WithMany(d => d.Appointments)

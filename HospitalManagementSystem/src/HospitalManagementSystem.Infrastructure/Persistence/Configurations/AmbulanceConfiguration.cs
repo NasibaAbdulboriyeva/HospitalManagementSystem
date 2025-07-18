@@ -25,9 +25,8 @@ public class AmbulanceConfiguration : IEntityTypeConfiguration<Ambulance>
             .IsRequired()
             .HasMaxLength(15);
 
-        builder.Property(a => a.Status)
-            .IsRequired()
-            .HasConversion<Status>();
+        builder.Property(a => a.AmbulanceStatus)
+            .IsRequired();
 
         builder.Property(a => a.Location)
             .HasMaxLength(200);
@@ -45,6 +44,6 @@ public class AmbulanceConfiguration : IEntityTypeConfiguration<Ambulance>
         builder.HasOne(a => a.Hospital)
             .WithMany(h => h.Ambulances)
             .HasForeignKey(a => a.HospitalId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

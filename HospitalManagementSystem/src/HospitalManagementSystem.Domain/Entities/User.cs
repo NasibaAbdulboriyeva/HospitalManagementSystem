@@ -17,8 +17,8 @@ public class User : IAuditEntity
     public ICollection<Notification> Notifications { get; set; }
     public ICollection<Payment> Payments { get; set; }
     public ICollection<Card> Cards { get; set; }
-    public ICollection<Patient> Patients { get; set; }
-    public ICollection<Doctor> Doctors { get; set; }
-    public ICollection<Nurse> Nurses { get; set; }
-    public ICollection<Staff> Staffs { get; set; }
+    public Doctor Doctor { get; set; }
+    public Patient Patient { get; set; }
+    public Nurse Nurse { get; set; }
+    public Staff Staff { get; set; }
 }

@@ -27,8 +27,7 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
                   .IsRequired();
 
         builder.Property(c => c.CardType)
-                  .IsRequired()
-                  .HasConversion<CardType>();
+                  .IsRequired();
 
         builder.Property(c => c.SelectedForPayment)
                     .IsRequired()
@@ -44,7 +43,7 @@ public class CardConfiguration : IEntityTypeConfiguration<Card>
         builder.HasOne(c => c.User)
                      .WithMany(u => u.Cards)
                      .HasForeignKey(c => c.UserId)
-                     .OnDelete(DeleteBehavior.Cascade);
+                     .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasMany(c => c.Payments)
                      .WithOne(p => p.Card)

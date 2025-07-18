@@ -28,8 +28,7 @@ public class TreatmentPlanConfiguration : IEntityTypeConfiguration<TreatmentPlan
             .IsRequired(false);
 
         builder.Property(tp => tp.TreatmentPlanStatus)
-            .IsRequired()
-            .HasConversion<TreatmentPlanStatus>();
+            .IsRequired();
 
         builder.Property(tp => tp.CreatedAt)
             .IsRequired()
@@ -46,7 +45,7 @@ public class TreatmentPlanConfiguration : IEntityTypeConfiguration<TreatmentPlan
         builder.HasOne(tp => tp.Patient)
             .WithMany(p => p.TreatmentPlans)
             .HasForeignKey(tp => tp.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(tp => tp.MedicalRecord)
             .WithMany(mr => mr.TreatmentPlans)
