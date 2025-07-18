@@ -10,7 +10,7 @@ public class Staff : IAuditEntity
     public DateTime? LastModifiedAt { get; set; }
 
     public Hospital Hospital { get; set; }
-    public long HospitalId { get; set; }
+    public long? HospitalId { get; set; }
     public long UserId { get; set; }
     public User User { get; set; }
 

@@ -18,7 +18,7 @@ public class Doctor : IAuditEntity
     public Department Department { get; set; }
     public long StaffId { get; set; } 
     public Staff Staff { get; set; }
-    public long OperationScheduleId { get; set; }
+    public long? OperationScheduleId { get; set; }
     public OperationSchedule OperationSchedule { get; set; }
     public ICollection<DoctorSpecialization> DoctorSpecializations { get; set; }
     public ICollection<LabTest> LabTests { get; set; }

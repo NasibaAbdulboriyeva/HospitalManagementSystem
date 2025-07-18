@@ -29,8 +29,7 @@ public class LabTestConfiguration : IEntityTypeConfiguration<LabTest>
             .IsRequired();
 
         builder.Property(t => t.Status)
-            .IsRequired()
-            .HasConversion<Status>();
+            .IsRequired();
 
         builder.Property(t => t.Cost)
             .IsRequired()
@@ -46,7 +45,7 @@ public class LabTestConfiguration : IEntityTypeConfiguration<LabTest>
         builder.HasOne(t => t.Patient)
             .WithMany(p => p.LabTests)
             .HasForeignKey(t => t.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(t => t.Doctor)
             .WithMany(d => d.LabTests)

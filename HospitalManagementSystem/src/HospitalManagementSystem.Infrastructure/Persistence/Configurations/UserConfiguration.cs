@@ -73,24 +73,24 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(c => c.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(u => u.Patients)
+        builder.HasOne(u => u.Patient)
             .WithOne(p => p.User)
-            .HasForeignKey(p => p.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasForeignKey<Patient>(p => p.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(u => u.Doctors)
+        builder.HasOne(u => u.Doctor)
             .WithOne(d => d.User)
-            .HasForeignKey(d => d.UserId)
+            .HasForeignKey<Doctor>(d => d.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(u => u.Nurses)
+        builder.HasOne(u => u.Nurse)
             .WithOne(n => n.User)
-            .HasForeignKey(n => n.UserId)
+            .HasForeignKey<Nurse>(n => n.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(u => u.Staffs)
+        builder.HasOne(u => u.Staff)
             .WithOne(s => s.User)
-            .HasForeignKey(s => s.UserId)
+            .HasForeignKey<Staff>(s => s.UserId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

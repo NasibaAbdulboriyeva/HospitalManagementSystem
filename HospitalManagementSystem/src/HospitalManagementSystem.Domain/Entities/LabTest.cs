@@ -11,10 +11,10 @@ public class LabTest : IAuditEntity
     public string Result { get; set; }
     public LabTestStatus Status { get; set; }
     public decimal Cost { get; set; }
-    public long PatientId { get; set; }
+    public long? PatientId { get; set; }
     public Patient Patient { get; set; }
     public long? DoctorId { get; set; }
-    public Doctor? Doctor { get; set; }
+    public Doctor Doctor { get; set; }
     public long? TreatmentPlanId { get; set; }
     public TreatmentPlan TreatmentPlan { get; set; }
     public DateTime CreatedAt { get; set; }

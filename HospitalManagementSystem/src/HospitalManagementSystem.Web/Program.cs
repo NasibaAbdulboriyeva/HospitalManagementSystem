@@ -1,4 +1,6 @@
 
+using HospitalManagementSystem.Web.Configurations;
+
 namespace HospitalManagementSystem.Web
 {
     public class Program
@@ -13,7 +15,7 @@ namespace HospitalManagementSystem.Web
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.ConfigureDB();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

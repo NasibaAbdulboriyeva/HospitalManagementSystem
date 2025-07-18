@@ -31,14 +31,14 @@ public class StaffConfiguration : IEntityTypeConfiguration<Staff>
             .IsRequired(false);
 
         builder.HasOne(s => s.User)
-            .WithMany(u => u.Staffs)
-            .HasForeignKey(s => s.UserId)
+            .WithOne(u => u.Staff)
+            .HasForeignKey<User>(s => s.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(s => s.Hospital)
             .WithMany(h => h.StaffMembers)
             .HasForeignKey(s => s.HospitalId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(s => s.Department)
             .WithMany(d => d.Staffs)

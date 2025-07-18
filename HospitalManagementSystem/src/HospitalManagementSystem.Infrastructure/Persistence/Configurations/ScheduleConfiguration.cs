@@ -23,8 +23,7 @@ public class ScheduleConfiguration : IEntityTypeConfiguration<Schedule>
             .HasDefaultValue(false);
 
         builder.Property(s => s.DayOfWeek)
-            .IsRequired()
-            .HasConversion<DayOfWeek>();
+            .IsRequired();
 
         builder.Property(s => s.CreatedAt)
             .IsRequired()

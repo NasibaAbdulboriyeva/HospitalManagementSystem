@@ -6,7 +6,7 @@ public class MedicalRecord : IAuditEntity
     public string Diagnosis { get; set; } 
     public string TreatmentSummary { get; set; } 
     public string Notes { get; set; }
-    public long PatientId { get; set; }
+    public long? PatientId { get; set; }
     public Patient Patient { get; set; }
     public ICollection<TreatmentPlan> TreatmentPlans { get; set; }
     public DateTime CreatedAt { get; set; }

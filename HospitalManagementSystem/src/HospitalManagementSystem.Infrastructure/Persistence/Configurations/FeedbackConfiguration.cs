@@ -29,7 +29,7 @@ public class FeedbackConfiguration : IEntityTypeConfiguration<Feedback>
         builder.HasOne(f => f.Patient)
             .WithMany(p => p.Feedbacks)
             .HasForeignKey(f => f.PatientId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(f => f.Doctor)
             .WithMany(d => d.Feedbacks)
